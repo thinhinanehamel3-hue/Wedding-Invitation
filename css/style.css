@@ -1,0 +1,610 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+
+html{
+
+    scroll-behavior:auto;
+
+}
+
+
+
+body{
+
+    font-family:'Cairo',sans-serif;
+
+    background:#faf6ef;
+
+    color:#3b3028;
+
+    overflow-x:hidden;
+
+}
+
+
+
+
+
+/* =========================
+        LOADER
+========================= */
+
+
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#faf6ef;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    z-index:9999;
+
+}
+
+
+
+#loader h1{
+
+    font-family:'Amiri',serif;
+
+    font-size:70px;
+
+    color:#a67c45;
+
+    letter-spacing:5px;
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+        ENVELOPE
+========================= */
+
+
+#envelope-section{
+
+    width:100vw;
+
+    height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:#eadcc8;
+
+}
+
+
+
+
+
+.envelope-container{
+
+    width:100vw;
+
+    height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+}
+
+
+
+
+
+.envelope-image{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+        INVITATION
+========================= */
+
+
+#invitation{
+
+    display:none;
+
+    opacity:0;
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+        HERO
+========================= */
+
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:40px;
+
+}
+
+
+
+
+
+.bismillah{
+
+    font-family:'Amiri',serif;
+
+    font-size:32px;
+
+    color:#a67c45;
+
+    margin-bottom:30px;
+
+}
+
+
+
+
+
+.hero h1{
+
+    font-family:'Amiri',serif;
+
+    font-size:90px;
+
+    color:#80613c;
+
+    margin-bottom:30px;
+
+}
+
+
+
+
+
+.subtitle{
+
+    font-size:22px;
+
+    line-height:2;
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+        INVITATION TEXT
+========================= */
+
+
+.invitation-text{
+
+
+    min-height:80vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:50px;
+
+}
+
+
+
+
+
+.verse{
+
+    font-family:'Amiri',serif;
+
+    max-width:900px;
+
+    font-size:30px;
+
+    line-height:2.2;
+
+    color:#715437;
+
+}
+
+
+
+
+
+.invitation-text h2{
+
+
+    font-family:'Amiri',serif;
+
+    font-size:70px;
+
+    color:#80613c;
+
+    margin:40px 0;
+
+}
+
+
+
+
+
+.invitation-text p{
+
+    max-width:750px;
+
+    font-size:22px;
+
+    line-height:2;
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+        DETAILS
+========================= */
+
+
+.details{
+
+    min-height:80vh;
+
+    text-align:center;
+
+    padding:60px;
+
+}
+
+
+
+
+.details h2,
+.countdown-section h2{
+
+
+    font-family:'Amiri',serif;
+
+    font-size:60px;
+
+    color:#80613c;
+
+    margin-bottom:50px;
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+        CARDS
+========================= */
+
+
+.cards{
+
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+
+
+}
+
+
+
+
+
+.card{
+
+
+    width:260px;
+
+    background:white;
+
+    padding:40px 25px;
+
+    border-radius:20px;
+
+    box-shadow:
+
+    0 20px 50px rgba(0,0,0,.08);
+
+
+}
+
+
+
+
+
+.card i{
+
+
+    font-size:40px;
+
+    color:#b38a50;
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+.card h3{
+
+    font-size:22px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+
+.card p{
+
+    font-size:18px;
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+        COUNTDOWN
+========================= */
+
+
+.countdown-section{
+
+
+    min-height:70vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:50px;
+
+
+}
+
+
+
+
+
+.countdown{
+
+
+    display:flex;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+
+}
+
+
+
+
+
+.time{
+
+
+    width:120px;
+
+    height:120px;
+
+    background:white;
+
+    border-radius:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:
+
+    0 15px 40px rgba(0,0,0,.08);
+
+
+}
+
+
+
+
+
+.time span{
+
+
+    font-size:40px;
+
+    font-weight:bold;
+
+    color:#a67c45;
+
+
+}
+
+
+
+
+
+.time small{
+
+    font-size:16px;
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+        MOBILE
+========================= */
+
+
+@media(max-width:700px){
+
+
+
+#loader h1{
+
+    font-size:45px;
+
+}
+
+
+
+.hero h1{
+
+    font-size:55px;
+
+}
+
+
+
+.bismillah{
+
+    font-size:25px;
+
+}
+
+
+
+.verse{
+
+    font-size:22px;
+
+}
+
+
+
+.invitation-text h2{
+
+    font-size:45px;
+
+}
+
+
+
+.details h2,
+.countdown-section h2{
+
+    font-size:45px;
+
+}
+
+
+
+}
