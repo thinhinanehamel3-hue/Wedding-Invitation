@@ -421,7 +421,7 @@
   }
 
   /* ============================================================
-     MESSAGE DE BIENVENUE (VERRE DÉPOLI + SANS BORDURE + HOVER)
+     MESSAGE DE BIENVENUE (VERRE DÉPOLI + SANS BORDURE)
      ============================================================ */
   .welcome-box {
       background: rgba(255, 255, 255, 0.25) !important;
@@ -437,7 +437,7 @@
       padding: 30px 24px;
       margin: 30px auto 0;
   }
-  .welcome-box:hover {
+  .welcome-box:active {
       background: rgba(255, 255, 255, 0.85) !important;
       box-shadow: 0 12px 40px rgba(184,150,46,0.25) !important;
       transform: scale(1.015) !important;
@@ -457,7 +457,7 @@
   }
 
   /* ============================================================
-     DÉTAILS DE LA CÉRÉMONIE - CARTES TRANSPARENTES AVEC HOVER
+     DÉTAILS DE LA CÉRÉMONIE - CARTES TRANSPARENTES
      ============================================================ */
   .details-container {
     display: flex;
@@ -473,7 +473,6 @@
     flex: 1;
     min-width: 160px;
     max-width: 240px;
-    /* MÊME STYLE DE TRANSPARENCE QUE LE RESTE */
     background: rgba(255, 255, 255, 0.25) !important;
     backdrop-filter: blur(6px) !important;
     border: none !important;
@@ -483,9 +482,7 @@
     text-align: center;
     transition: all 0.4s ease !important;
   }
-
-  /* MÊME EFFET DE SURVOL (HOVER) */
-  .detail-card:hover {
+  .detail-card:active {
     background: rgba(255, 255, 255, 0.85) !important;
     box-shadow: 0 12px 40px rgba(184,150,46,0.25) !important;
     transform: scale(1.015) !important;
@@ -542,7 +539,7 @@
   }
 
   /* ============================================================
-     PROGRAMME (VERRE DÉPOLI + SANS BORDURE + HOVER)
+     PROGRAMME (VERRE DÉPOLI + SANS BORDURE)
      ============================================================ */
   .schedule-divider {
     width: 140px;
@@ -583,7 +580,7 @@
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     transition: all 0.4s ease !important;
   }
-  .timeline-row:hover {
+  .timeline-row:active {
     background: rgba(255, 255, 255, 0.85) !important;
     box-shadow: 0 12px 40px rgba(184,150,46,0.25) !important;
     transform: scale(1.015) !important;
@@ -790,7 +787,11 @@
       background-size: cover !important;
       background-position: center center !important;
       background-repeat: no-repeat !important;
-      background-attachment: scroll !important; /* Parfois mieux sur mobile */
+      background-attachment: scroll !important;
+    }
+    /* Désactiver le léger zoom sur mobile pour éviter les à-coups */
+    .welcome-box:active, .detail-card:active, .timeline-row:active {
+      transform: scale(1.01) !important; /* Un tout petit zoom pour le confort tactile */
     }
   }
 </style>
