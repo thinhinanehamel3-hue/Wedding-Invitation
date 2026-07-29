@@ -781,6 +781,18 @@
       background: transparent !important;
       min-height: auto !important;
   }
+
+  /* ============================================================
+     CORRECTION DU FOND SUR TÉLÉPHONE (MOBILE)
+     ============================================================ */
+  @media only screen and (max-width: 767px) {
+    body.fond-invitation {
+      background-size: cover !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+      background-attachment: scroll !important; /* Parfois mieux sur mobile */
+    }
+  }
 </style>
 </head>
 <body>
