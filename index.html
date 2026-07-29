@@ -1,17 +1,3 @@
-Je comprends tout à fait ! C'est un problème très fréquent en développement web : **ce qui est beau sur un écran d'ordinateur devient illisible sur un petit écran de téléphone** car les marges sont trop grandes, les textes sont trop gros, et les cartes se chevauchent.
-
-J'ai entièrement **repensé l'affichage pour le mobile** tout en gardant votre design élégant sur PC. 
-
-Voici les changements majeurs que j'ai appliqués pour que ce soit **parfait sur téléphone** :
-1. **Les cartes de détails** ne sont plus en ligne, elles s'empilent proprement les unes sous les autres avec un espacement parfait.
-2. **Les textes et les titres** ont été réduits pour ne pas déborder de l'écran.
-3. **Les marges** ont été supprimées sur mobile pour que le contenu profite de toute la largeur de l'écran.
-4. **L'effet Hover** a été totalement remplacé par un effet de **clic (active)** sur mobile pour éviter les blocages visuels.
-5. **Le menu** et les décorations s'adaptent maintenant automatiquement.
-
-Copiez ce code et remplacez tout votre fichier :
-
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -783,14 +769,15 @@ Copiez ce code et remplacez tout votre fichier :
   }
 
   /* ============================================================
-     CORRECTION DU FOND SUR TÉLÉPHONE (MOBILE)
+     CORRECTION DU FOND SUR TÉLÉPHONE (MOBILE) - ICI LA SOLUTION
      ============================================================ */
   @media only screen and (max-width: 767px) {
     body.fond-invitation {
-      background-size: cover !important;
+      /* Empêcher le "zoom" anormal sur mobile en forçant les dimensions */
+      background-size: 100% 100% !important; 
       background-position: center center !important;
       background-repeat: no-repeat !important;
-      background-attachment: scroll !important;
+      background-attachment: scroll !important; /* Correction du défilement */
     }
     
     /* Réorganisation des cartes sur mobile pour éviter la catastrophe */
@@ -1182,4 +1169,3 @@ Copiez ce code et remplacez tout votre fichier :
 
 </body>
 </html>
-```
