@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mariage d'Amine Yasmine</title>
+<title>Mariage de Bilal &amp; Amina Yasmine</title>
 
 <!-- ============ POLICES ============ -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -119,7 +119,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: opacity 1.4s ease;
+    transition: opacity 0.44s ease;
     background-image: url('assets/images/background-enveloppe.jpg');
     background-size: cover;
     background-position: center;
@@ -146,7 +146,7 @@
   }
 
   .envelope-inner img {
-    width: 100%;
+    width: 60%;
     max-width: 440px;
     height: auto;
     max-height: 70vh;
@@ -253,7 +253,7 @@
   #audioBtn.paused .icon-play { display: block; }
 
   /* ============================================================
-     HERO - Image en fond direct, texte responsive
+     HERO - FUSION PARFAITE AVEC LE FOND (DÉGRADÉ AJUSTÉ)
      ============================================================ */
   #hero {
     position: relative;
@@ -263,17 +263,68 @@
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
-    background-image: url('assets/images/hero-background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: #f5efe6;
   }
 
+  #hero-video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Dégradé doux pour estomper la vidéo vers le beige */
+  #hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.05) 0%,
+        rgba(0,0,0,0.02) 40%,
+        rgba(245,239,230,0.1) 60%,
+        rgba(245,239,230,0.4) 75%,
+        rgba(245,239,230,0.8) 85%,
+        rgba(245,239,230,1) 100%
+    );
+  }
+
+  /* Brume blanche qui cache la ligne de séparation (Modifiée ici) */
+  #hero::before {
+    content: "";
+    position: absolute;
+    left: -15%;
+    right: -15%;
+    bottom: -50px;
+    height: 50px; /* Réduite pour dégager les cygnes */
+    
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(245,239,230,0) 0%, rgba(255,255,255,0.3) 50%, rgba(245,239,230,1) 100%); /* Moins opaque */
+    filter: blur(30px);
+  }
+
+  /* Contenu */
   #hero .wrap {
     position: relative;
-    z-index: 1;
+    z-index: 5;
     width: 100%;
     max-width: 800px;
+  }
+
+  .hero-title {
+    font-family: 'Cinzel', Georgia, serif;
+    color: var(--gold-dark);
+    font-size: clamp(30px, 8vw, 70px);
+    font-weight: 400;
+    letter-spacing: .2em;
+    margin: 0 0 15px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.7);
   }
 
   .hero-date {
@@ -285,16 +336,48 @@
     margin: 0 0 20px;
     text-shadow: 0 2px 20px rgba(0,0,0,0.7);
   }
-  .hero-names {
+
+  /* PRÉNOMS LES UNS SOUS LES AUTRES */
+  .hero-names-stacked {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 0 16px;
+  }
+
+  .hero-name-groom {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-style: italic;
     font-weight: 500;
     color: #080101;
-    font-size: clamp(36px, 10vw, 76px);
-    line-height: 1.15;
-    margin: 0 0 16px;
+    font-size: clamp(40px, 10vw, 76px);
+    line-height: 1.1;
     text-shadow: 0 2px 20px rgba(0,0,0,0.7);
+    display: block;
   }
+
+  .hero-ampersand {
+    font-family: 'Cinzel', Georgia, serif;
+    color: var(--gold-dark);
+    font-size: clamp(32px, 7vw, 56px);
+    line-height: 1.2;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.7);
+    display: block;
+  }
+
+  .hero-name-bride {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    color: #080101;
+    font-size: clamp(40px, 10vw, 76px);
+    line-height: 1.1;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.7);
+    display: block;
+  }
+
   .hero-sub {
     font-size: clamp(18px, 3vw, 26px);
     color: var(--brown-soft);
@@ -302,52 +385,9 @@
     margin: 0 0 20px;
     text-shadow: 0 2px 15px rgba(0,0,0,0.5);
   }
-  .scroll-label {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    color: var(--gold-dark);
-    font-size: clamp(18px, 2.5vw, 26px);
-    margin: 0 0 10px;
-    text-shadow: 0 2px 15px rgba(0,0,0,0.5);
-  }
-  .scroll-chevron {
-    display: block;
-    margin: 0 auto 30px;
-    width: 24px;
-    height: 15px;
-    animation: bob 1.4s ease-in-out infinite;
-  }
-  @keyframes bob {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(6px); }
-  }
-  .swans-video {
-    max-width: 280px;
-    width: 100%;
-    margin: 0 auto 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-    border: 1px solid var(--gold-light);
-  }
-  .flower-row {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
-  }
-  .flower-row img {
-    width: clamp(100px, 20vw, 200px);
-    opacity: 0.7;
-  }
-  .hero-ornament {
-    width: clamp(40px, 8vw, 70px);
-    margin: 16px auto 0;
-    opacity: 0.6;
-  }
 
   /* ============================================================
-     INVITATION : Basmala + Verset (sans fond noir)
+     INVITATION : Basmala + Verset (sans fond noir) + "Découvrez l'invitation"
      ============================================================ */
   #invitation {
     position: relative;
@@ -392,6 +432,26 @@
     text-align: center;
   }
 
+  /* PHRASE RÉINTÉGRÉE ICI (Avant la Basmala) */
+  .scroll-label {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: var(--gold-dark);
+    font-size: clamp(18px, 2.5vw, 26px);
+    margin: 0 0 30px;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+  }
+  .scroll-chevron {
+    display: block;
+    margin: 0 auto 35px;
+    width: 24px;
+    height: 15px;
+    animation: bob 1.4s ease-in-out infinite;
+  }
+  @keyframes bob {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
   .bismillah {
     font-family: 'Amiri', serif;
     color: #d4af37;
@@ -418,39 +478,25 @@
   }
 
   /* ============================================================
-     MESSAGE DE BIENVENUE
+     MESSAGE DE BIENVENUE (REMPLACÉ PAR LA PHOTO DE CARTE)
      ============================================================ */
-  .welcome-box {
-      background: rgba(255, 255, 255, 0.25) !important;
-      backdrop-filter: blur(6px) !important;
-      padding: 24px 30px;
-      border-radius: 12px;
-      border: none !important;
-      box-shadow: 0 8px 30px rgba(184,150,46,0.08);
-      transition: all 0.4s ease !important; 
-      margin: 0 auto; 
-      max-width: 660px;
-      text-align: center;
-      padding: 30px 24px;
-      margin: 30px auto 0;
+  .welcome-card-box {
+    background: rgba(255, 255, 255, 0.25) !important;
+    backdrop-filter: blur(6px) !important;
+    
+    border-radius: 12px;
+    border: none !important;
+    box-shadow: 0 8px 30px rgba(184,150,46,0.08);
+    transition: all 0.4s ease !important; 
+    margin: 0 auto; 
+    max-width: 600px;
+    margin: 30px auto 0;
   }
-  .welcome-box:hover, .welcome-box:active {
-      background: rgba(255, 255, 255, 0.85) !important;
-      box-shadow: 0 12px 40px rgba(184,150,46,0.25) !important;
-      transform: scale(1.015) !important;
-  }
-
-  .welcome-text {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(18px, 2.5vw, 24px);
-    color: var(--brown-soft);
-    font-style: italic;
-    line-height: 1.6;
-    margin: 0;
-  }
-  .welcome-text strong {
-    font-weight: 700;
-    color: var(--brown);
+  .welcome-card-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
   }
 
   /* ============================================================
@@ -470,7 +516,6 @@
     flex: 1;
     min-width: 160px;
     max-width: 240px;
-    /* MÊME STYLE DE TRANSPARENCE QUE LE RESTE */
     background: rgba(255, 255, 255, 0.25) !important;
     backdrop-filter: blur(6px) !important;
     border: none !important;
@@ -479,11 +524,6 @@
     box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
     text-align: center;
     transition: all 0.4s ease !important;
-  }
-  .detail-card:hover, .detail-card:active {
-    background: rgba(255, 255, 255, 0.85) !important;
-    box-shadow: 0 12px 40px rgba(184,150,46,0.25) !important;
-    transform: scale(1.015) !important;
   }
 
   .icon-circle {
@@ -532,11 +572,6 @@
   /* ============================================================
      PROGRAMME
      ============================================================ */
-  .schedule-divider {
-    width: 140px;
-    margin: 0 auto 30px;
-    opacity: 0.5;
-  }
   .timeline {
     position: relative;
     max-width: 460px;
@@ -568,11 +603,6 @@
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     transition: all 0.4s ease !important;
   }
-  .timeline-row:hover, .timeline-row:active {
-    background: rgba(255, 255, 255, 0.85) !important;
-    box-shadow: 0 12px 40px rgba(184,150,46,0.25) !important;
-    transform: scale(1.015) !important;
-  }
 
   .timeline-time {
     font-family: 'Cormorant Garamond', Georgia, serif;
@@ -599,40 +629,10 @@
     color: var(--brown);
     line-height: 1.2;
   }
-  .schedule-wrap-inner {
-    position: relative;
-  }
-  .sched-accent {
-    position: absolute;
-    width: 60px;
-    opacity: 0.4;
-    pointer-events: none;
-  }
-  .sched-accent.tr { top: -20px; right: -5px; }
-  .sched-accent.bl { bottom: -20px; left: -5px; }
-  @media (max-width:700px) {
-    .sched-accent { display: none; }
-  }
-  .sched-inline-row {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-  }
-  .sched-inline-row img {
-    width: 45px;
-    opacity: 0.6;
-  }
 
   /* ============================================================
      COMPTE À REBOURS
      ============================================================ */
-  .countdown-ornament-top, .countdown-ornament-bottom {
-    width: 70px;
-    margin: 0 auto 20px;
-    opacity: 0.6;
-  }
   .countdown-row {
     display: flex;
     justify-content: center;
@@ -731,20 +731,39 @@
   }
 
   /* ============================================================
+     NOUVELLE SECTION : PAS DE PHOTO (MODIFIÉE ICI)
+     ============================================================ */
+  #no-photo-section {
+    padding: 40px 0 60px;
+  }
+  .no-photo-box {
+    background: rgba(255, 255, 255, 0.25) !important;
+    backdrop-filter: blur(6px) !important;
+    
+    border: none !important; /* Cadre jaune SUPPRIMÉ */
+    border-radius: 0 !important; /* Coins arrondis SUPPRIMÉS */
+    box-shadow: 0 8px 30px rgba(184,150,46,0.08);
+    margin: 0 auto;
+    max-width: 320px; /* TAILLE RÉDUITE (était à 440px) */
+    transition: all 0.4s ease !important;
+  }
+  .no-photo-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 0 !important; /* Supprime les coins ronds de l'image elle-même */
+    display: block;
+  }
+
+  /* ============================================================
      FOOTER
      ============================================================ */
   footer {
     padding: 30px 0 70px;
     text-align: center;
   }
-  .footer-ornament {
-    width: 50px;
-    margin: 0 auto 14px;
-    opacity: 0.5;
-  }
   .footer-text {
     font-style: italic;
-    color: var(--brown-soft);
+    color: #1b1b1a;
     font-size: clamp(16px, 2vw, 20px);
     letter-spacing: .02em;
   }
@@ -769,18 +788,16 @@
   }
 
   /* ============================================================
-     CORRECTION DU FOND SUR TÉLÉPHONE (MOBILE) - ICI LA SOLUTION
+     CORRECTION DU FOND SUR TÉLÉPHONE (MOBILE)
      ============================================================ */
   @media only screen and (max-width: 767px) {
     body.fond-invitation {
-      /* Empêcher le "zoom" anormal sur mobile en forçant les dimensions */
-      background-size: 100% 100% !important; 
+      background-size: cover !important;
       background-position: center center !important;
       background-repeat: no-repeat !important;
-      background-attachment: scroll !important; /* Correction du défilement */
     }
     
-    /* Réorganisation des cartes sur mobile pour éviter la catastrophe */
+    /* Réorganisation des cartes sur mobile */
     .details-container {
       flex-direction: column !important;
       align-items: center !important;
@@ -800,13 +817,6 @@
     /* Ajustement des icônes */
     .icon-circle { width: 50px !important; height: 50px !important; }
     .detail-icon { width: 22px !important; height: 22px !important; }
-    
-    /* Ajustement du hover/active pour le tactile */
-    .welcome-box:hover, .welcome-box:active,
-    .detail-card:hover, .detail-card:active,
-    .timeline-row:hover, .timeline-row:active {
-      transform: scale(1.01) !important; /* Zoom léger pour éviter les à-coups */
-    }
   }
 </style>
 </head>
@@ -844,54 +854,54 @@
 <!-- ================= CONTENU PRINCIPAL ================= -->
 <main id="mainContent">
 
-  <!-- HERO -->
+  <!-- HERO - Fusion parfaite avec dégradé blanc -->
   <section id="hero">
+    <video id="hero-video-bg" autoplay muted loop playsinline>
+      <source src="https://pub-4dc8201144ca418fb604349c73e8c724.r2.dev/Swans2.mov" type="video/mp4">
+    </video>
+    
     <div class="wrap">
-      <p class="eyebrow reveal">Mariage</p>
+      <h1 class="hero-title reveal">Mariage</h1>
       <p class="hero-date reveal">27.08.26</p>
-      <h1 class="hero-names reveal">Amine Yasmine</h1>
-      <p class="hero-sub reveal">Avec fierté et bonheur…</p>
       
-      <!-- VIDEO DES CYGNES DÉPLACÉE ICI -->
-      <video class="swans-video reveal" autoplay muted loop playsinline>
-        <source src="assets/videos/swans.mov" type="video/mp4">
-      </video>
-      
-      <!-- TEXTE DÉCOUVREZ L'INVITATION ET FLÈCHE (MAINTENANT APRÈS LA VIDÉO) -->
-      <p class="scroll-label reveal">Découvrez l'invitation</p>
-      <svg class="scroll-chevron reveal" viewBox="0 0 25 15.86"><path fill="none" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" d="M1.0092 1.008C4.3691 5.4431 9.1402 9.565 12.5 14C16.8007 9.565 19.6901 5.4431 23.9908 1.008"/></svg>
-      
-      <div class="flower-row reveal">
-        <img src="assets/images/fleur1.png" alt="">
-        <img src="assets/images/fleur2.png" alt="">
+      <div class="hero-names-stacked reveal">
+        <span class="hero-name-groom">Bilal</span>
+        <span class="hero-ampersand">&amp;</span>
+        <span class="hero-name-bride">Amina Yasmine</span>
       </div>
       
-      <img class="hero-ornament reveal" src="assets/images/ornement-hero.png" alt="">
+      <p class="hero-sub reveal">Avec fierté et bonheur…</p>
     </div>
   </section>
 
-  <!-- INVITATION : Basmala (en arabe) + Verset (en arabe) -->
+  <!-- INVITATION : Basmala + Verset + "Découvrez l'invitation" -->
   <section id="invitation">
     <div class="invitation-bg-image">
       <img src="assets/images/invitation-background.jpg" alt="Fond verset">
       <div class="invitation-overlay"></div>
     </div>
     <div class="wrap">
+      
+      <!-- PHRASE ET FLÈCHE RÉINTÉGRÉES AVANT LA BASMALA -->
+      <p class="scroll-label reveal">Découvrez l'invitation</p>
+      <svg class="scroll-chevron reveal" viewBox="0 0 25 15.86"><path fill="none" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" d="M1.0092 1.008C4.3691 5.4431 9.1402 9.565 12.5 14C16.8007 9.565 19.6901 5.4431 23.9908 1.008"/></svg>
+
       <p class="bismillah reveal">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
       <p class="quran-verse reveal">﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً ﴾</p>
     </div>
   </section>
 
-  <!-- MESSAGE DE BIENVENUE -->
-  <section id="welcome-message">
+  <!-- MESSAGE DE BIENVENUE - REMPLACÉ PAR LA PHOTO DE CARTE D'INVITATION -->
+  <section id="welcome-card">
     <div class="wrap">
-      <div class="welcome-box reveal">
-        <p class="welcome-text">C'est avec un immense plaisir que <strong>Monsieur et Madame Hamel</strong> ont l'honneur de vous inviter à la célébration du mariage de leur fille, <strong>Amine Yasmine</strong>, et de partager leur bonheur en cette merveilleuse occasion.</p>
+      <div class="welcome-card-box reveal">
+        <!-- ⚠️ IMPORTANT : Remplacez "ma-carte-invitation.png" par le vrai nom de votre image qui se trouve dans le dossier assets/images/ -->
+        <img src="assets/images/ma-carte-invitation.png" alt="Carte d'invitation">
       </div>
     </div>
   </section>
 
-  <!-- DÉTAILS DE LA CÉRÉMONIE (AVEC LE NOUVEAU STYLE TRANSPARENT) -->
+  <!-- DÉTAILS DE LA CÉRÉMONIE -->
   <section id="details">
     <div class="wrap">
       <h2 class="section-title reveal">Détails de la cérémonie</h2>
@@ -932,10 +942,7 @@
   <section id="schedule">
     <div class="wrap">
       <h2 class="section-title reveal">Programme de la journée</h2>
-      <img class="schedule-divider reveal" src="assets/images/ornement-divider2.png" alt="">
-      <div class="schedule-wrap-inner reveal">
-        <img class="sched-accent tr" src="assets/images/decor-droite.png" alt="">
-        <img class="sched-accent bl" src="assets/images/decor-gauche.png" alt="">
+      
         <div class="timeline">
           <div class="timeline-row">
             <span class="timeline-time">11h30 - 14h30</span>
@@ -958,22 +965,14 @@
             <span class="timeline-event">Service du thé</span>
           </div>
         </div>
-      </div>
-      <div class="sched-inline-row reveal">
-        <img src="assets/images/decor-rose.png" alt="">
-        <img src="assets/images/decor-feuille.png" alt="">
-        <img src="assets/images/decor-etoile.png" alt="">
-        <img src="assets/images/decor-fleur.png" alt="">
-        <img src="assets/images/decor-brin.png" alt="">
-      </div>
     </div>
   </section>
 
   <!-- COMPTE À REBOURS -->
   <section id="countdown">
     <div class="wrap">
-      <img class="countdown-ornament-top reveal" src="assets/images/ornement-countdown-haut.png" alt="">
       <h2 class="section-title reveal">La célébration commence dans</h2>
+      
       <div id="countdownContainer" class="countdown-row reveal">
         <div class="cd-block">
           <div class="cd-number-wrap"><span class="cd-number" id="cd-days">00</span></div>
@@ -995,7 +994,7 @@
           <div class="cd-label">Secondes</div>
         </div>
       </div>
-      <img class="countdown-ornament-bottom reveal" src="assets/images/ornement-countdown-bas.png" alt="">
+      
     </div>
   </section>
 
@@ -1017,12 +1016,21 @@
     </div>
   </section>
 
+  <!-- NOUVELLE SECTION : PAS DE PHOTO (AVEC MODIFICATIONS APPLIQUÉES) -->
+  <section id="no-photo-section">
+    <div class="wrap">
+      <div class="no-photo-box reveal">
+        <!-- Remplacez le lien src ci-dessous par le chemin local de votre image si vous l'avez téléchargée -->
+        <img src="assets/images/pas-de-photo.png" alt="Pas de photo - Merci de respecter ce souhait">
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
-    <img class="footer-ornament reveal" src="assets/images/ornement-footer.png" alt="">
     <p class="footer-text reveal">Au plaisir de partager ce moment précieux avec vous.</p>
   </div>
 </footer>
